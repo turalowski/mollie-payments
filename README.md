@@ -79,12 +79,13 @@ Supabase (Postgres, Auth, RLS) · `@mollie/api-client` · Zod
 
 ```
 src/app/
-  page.tsx                        Pricing landing page (Server Component)
-  login/, signup/                 Auth pages
-  dashboard/                      Signed-in subscription + payment history
-  checkout/return/                Landing spot after Mollie checkout
+  (pages)/                        Route group — organizes pages, invisible in the URL
+    page.tsx                        Pricing landing page (Server Component)
+    login/, signup/                 Auth pages
+    dashboard/                      Signed-in subscription + payment history
+    checkout/return/                Landing spot after Mollie checkout
   actions/auth.ts                 Server Actions: sign up / in / out
-  auth/confirm/route.ts           Email confirmation link target
+  api/auth/confirm/route.ts       Email confirmation link target
   api/checkout/route.ts           Starts a subscription checkout
   api/webhooks/mollie/route.ts    Mollie payment webhook
   api/subscription/cancel/route.ts
@@ -154,7 +155,7 @@ npx ngrok http 3000
 ```
 
 and set `NEXT_PUBLIC_APP_URL` to the `https://…ngrok-free.app` URL it
-gives you. Also add `<that URL>/auth/confirm` as a redirect URL in
+gives you. Also add `<that URL>/api/auth/confirm` as a redirect URL in
 Supabase's Auth settings so the sign-up confirmation email link works.
 
 ### 5. Run it

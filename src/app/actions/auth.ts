@@ -20,7 +20,7 @@ export async function signUpAction(formData: FormData) {
     password,
     options: {
       data: name ? { full_name: name } : undefined,
-      emailRedirectTo: `${getAppUrl()}/auth/confirm`,
+      emailRedirectTo: `${getAppUrl()}/api/auth/confirm`,
     },
   });
 
